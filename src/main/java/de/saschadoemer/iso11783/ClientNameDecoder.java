@@ -1,13 +1,12 @@
 package de.saschadoemer.iso11783;
 
-import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Client name decoder for ISO 11783-5 encoded client names.
  */
 public final class ClientNameDecoder {
-
-    private static final Logger LOG = Logger.getLogger(ClientNameDecoder.class.getName());
 
     /**
      * Hide the constructor.
@@ -22,7 +21,6 @@ public final class ClientNameDecoder {
      */
     public static void decode(byte[] clientName) {
         if (null == clientName || clientName.length == 0) {
-            LOG.warning("Could not decode client name, since the client name was null or empty.");
             throw new IllegalArgumentException("The client name can not be null or empty");
         }
         validateClientName(clientName);
@@ -30,9 +28,10 @@ public final class ClientNameDecoder {
 
     private static void validateClientName(byte[] clientName) {
         final String hexRepresentation = new String(clientName);
-        if (hexRepresentation.length() != 16) {
-            LOG.warning("The client name has the wrong length. The client name has to have exactly 16 digits.");
-            throw new IllegalArgumentException(String.format("Wrong client name format, expected 15 digits,found %d digits.", hexRepresentation.length()));
+        final Pattern pattern = Pattern.compile("^[A-Fa-f0-9]{16}$");
+        final Matcher matcher = pattern.matcher(hexRepresentation);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(String.format("The HEX representaton '%s' does not match the requirements, please check the input.", hexRepresentation));
         }
     }
 
