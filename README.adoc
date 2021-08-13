@@ -1,0 +1,25 @@
+= ISO 11783 | Client Name Decoder
+:imagesdir: assets/images
+
+The https://en.wikipedia.org/wiki/ISO_11783[ISO 11783] standard specifies a serial data network for control and communications on forestry and agricultural machines.
+Every control function in an ISOBUS network has a unique NAME ( defined in https://www.iso.org/standard/74366.html[11783-5]) that contains information about the manufacturer code, the device class and other common fields.
+The information is encoded in a byte value representation.
+
+== Supporters & Maintainers
+
+image::lmis.svg[agrirouter]
+
+The LMIS AG is a recognised german IT service company, certified according to DIN EN ISO 9001:2015 and based in Osnabrück, Berlin, Friedland and Wuppertal.
+Our core competence is the individual development, optimisation and support of IT solutions.
+We also provide professional IT consulting services and training courses.
+We have been supporting the whole project during the development in the field of test management and are currently responsible for the development support of the platform.
+
+== The current project you’re looking at
+
+This project contains a simple decoder for the binary values and can be used in every other project.
+There is already an existing resolver for TypeScript that has been developed by https://github.com/krone-landmaschinen[Maschinenfabrik Bernard KRONE GmbH & Co. KG].
+This project adds an implementation for Java.
+
+== Releases
+
+The release workflow follows the Microsoft DevOps Release Model where a release shows up as a branch in the repository.
