@@ -17,4 +17,4 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B deploy --file pom.xml
+        run: mvn -B deploy --file pom.xml --settings ci/settings.xml

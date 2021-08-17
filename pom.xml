@@ -9,6 +9,50 @@
     <name>ISO 11783 | Client Name Decoder</name>
     <packaging>jar</packaging>
 
+    <url>https://github.com/saschadoemer/isobus-client-name-decoder</url>
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>saschadoemer</id>
+            <name>Sascha Doemer</name>
+            <email>Cf4ThQgxcnxAovOUXTNv@saschadoemer.de</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git:github.com/saschadoemer/isobus-client-name-decoder.git</connection>
+        <developerConnection>scm:git:git@github.com:saschadoemer/isobus-client-name-decoder.git </developerConnection>
+        <url>https://github.com/saschadoemer/isobus-client-name-decoder</url>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub DKE-Data Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/saschadoemer/isobus-client-name-decoder</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github</id>
+            <name>GitHub DKE-Data Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/DKE-Data/*</url>
+        </repository>
+    </repositories>
+
     <properties>
 
         <!-- PROJECT SETTINGS -->

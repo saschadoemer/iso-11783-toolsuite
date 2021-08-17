@@ -22,7 +22,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk9:
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk10:
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +46,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk11:
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk12:
     runs-on: ubuntu-latest
     steps:
@@ -70,7 +70,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk13:
     runs-on: ubuntu-latest
     steps:
@@ -82,7 +82,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk14:
     runs-on: ubuntu-latest
     steps:
@@ -94,7 +94,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk15:
     runs-on: ubuntu-latest
     steps:
@@ -106,7 +106,7 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
   build_jdk16:
     runs-on: ubuntu-latest
     steps:
@@ -118,4 +118,4 @@ jobs:
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B clean verify --file pom.xml
+        run: mvn -B clean verify --file pom.xml --settings ci/settings.xml
