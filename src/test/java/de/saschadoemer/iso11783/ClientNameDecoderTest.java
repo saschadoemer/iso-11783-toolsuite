@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClientNameDecoderTest {
 
@@ -32,6 +32,69 @@ class ClientNameDecoderTest {
     void givenValidHexValueWhenDecodingTheClientNameThenTheDecoderShouldDecodeAllFieldsCorrectly() {
         final String hexValue = "A01284000DE0C3FF";
         ClientNameDecoder.decode(hexValue.getBytes(StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheSelfConfigurableAddressThenTheDecoderShouldDecodeTheSelfConfigurableAddressCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final boolean selfConfigurableAddress = ClientNameDecoder.getSelfConfigurableAddress(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertTrue(selfConfigurableAddress);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheIndustryGroupThenTheDecoderShouldDecodeTheIndustryGroupCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int industryGroup = ClientNameDecoder.getIndustryGroup(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(2, industryGroup);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheDeviceClassInstanceThenTheDecoderShouldDecodeTheDeviceClassInstanceCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int deviceClassInstance = ClientNameDecoder.getDeviceClassInstance(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(0, deviceClassInstance);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheDeviceClassThenTheDecoderShouldDecodeTheDeviceClassCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int deviceClass = ClientNameDecoder.getDeviceClass(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(9, deviceClass);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheFunctionThenTheDecoderShouldDecodeTheFunctionCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final long function = ClientNameDecoder.getFunction(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(132, function);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheFunctionInstanceThenTheDecoderShouldDecodeTheFunctionInstanceCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int functionInstance = ClientNameDecoder.getFunctionInstance(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(0, functionInstance);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheECUInstanceThenTheDecoderShouldDecodeTheECUInstanceCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int ecuInstance = ClientNameDecoder.getECUInstance(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(0, ecuInstance);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheManufacturerCodeThenTheDecoderShouldDecodeTheManufacturerCodeCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int manufacturerCode = ClientNameDecoder.getManufacturerCode(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(111, manufacturerCode);
+    }
+
+    @Test
+    void givenValidHexValueWhenDecodingTheClientNameAndReadingTheIdentityNumberThenTheDecoderShouldDecodeTheIdentityNumberCorrectly() {
+        final String hexValue = "A01284000DE0C3FF";
+        final int identityNumber = ClientNameDecoder.getIdentityNumber(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertEquals(50175, identityNumber);
     }
 
 }
