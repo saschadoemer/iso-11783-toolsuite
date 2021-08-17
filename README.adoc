@@ -23,3 +23,18 @@ This project adds an implementation for Java.
 == Releases
 
 The release workflow follows the Microsoft DevOps Release Model where a release shows up as a branch in the repository.
+
+== Integration
+
+You can find the packages right https://github.com/saschadoemer?tab=packages[here] and there is an integration guide for maven package right https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry[here]. Feel free to integrate the package within your project.
+
+[source,xml]
+<dependency>
+    <groupId>de.saschadoemer.iso-11783</groupId>
+    <artifactId>client-name-decoder</artifactId>
+    <version>${client-name-decoder.version}</version>
+</dependency>
+
+=== Contact and interaction
+
+You found a bug? Great! Please send me a note or add an issue to the project, so I can fix it. If you want to participate, feel free to create a PR and contribute to the project.
