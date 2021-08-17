@@ -3,6 +3,8 @@ package de.saschadoemer.iso11783;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +20,36 @@ public final class ClientNameDecoder {
     }
 
     /**
+     * Decode a given UTF-8 representation of a client name into a more common representation.
+     *
+     * @param clientName -
+     * @return The parsed values as object representation.
+     */
+    public static ClientName decode(String clientName) {
+        if (null == clientName || clientName.length() == 0 || clientName.trim().length() == 0) {
+            throw new IllegalArgumentException("The client name can not be null or empty.");
+        }
+        return decode(clientName.trim().getBytes(StandardCharsets.UTF_8));
+    }
+
+    /**
+     * Decode a given representation of a client name into a more common representation.
+     *
+     * @param clientName -
+     * @param charset    -
+     * @return The parsed values as object representation.
+     */
+    public static ClientName decode(String clientName, Charset charset) {
+        if (null == clientName || clientName.length() == 0 || clientName.trim().length() == 0) {
+            throw new IllegalArgumentException("The client name can not be null or empty.");
+        }
+        if (null == charset) {
+            throw new IllegalArgumentException("The charset can not be null.");
+        }
+        return decode(clientName.trim().getBytes(charset));
+    }
+
+    /**
      * Decode a given binary representation of a client name into a more common representation.
      *
      * @param clientName -
@@ -25,7 +57,7 @@ public final class ClientNameDecoder {
      */
     public static ClientName decode(byte[] clientName) {
         if (null == clientName || clientName.length == 0) {
-            throw new IllegalArgumentException("The client name can not be null or empty");
+            throw new IllegalArgumentException("The client name can not be null or empty.");
         }
         validateClientName(clientName);
         final ClientName parsedClientName = new ClientName();
