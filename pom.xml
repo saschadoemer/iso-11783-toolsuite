@@ -5,7 +5,7 @@
 
     <groupId>de.saschadoemer.iso-11783</groupId>
     <artifactId>client-name-decoder</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>ISO 11783 | Client Name Decoder</name>
     <packaging>jar</packaging>
 
