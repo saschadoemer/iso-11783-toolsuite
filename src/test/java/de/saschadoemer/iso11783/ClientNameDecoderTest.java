@@ -31,7 +31,16 @@ class ClientNameDecoderTest {
     @Test
     void givenValidHexValueWhenDecodingTheClientNameThenTheDecoderShouldDecodeAllFieldsCorrectly() {
         final String hexValue = "A01284000DE0C3FF";
-        ClientNameDecoder.decode(hexValue.getBytes(StandardCharsets.UTF_8));
+        final ClientName clientName = ClientNameDecoder.decode(hexValue.getBytes(StandardCharsets.UTF_8));
+        assertTrue(clientName.isSelfConfigurableAddress());
+        assertEquals(2, clientName.getIndustryGroup());
+        assertEquals(0, clientName.getDeviceClassInstance());
+        assertEquals(9, clientName.getDeviceClass());
+        assertEquals(132, clientName.getFunction());
+        assertEquals(0, clientName.getFunctionInstance());
+        assertEquals(0, clientName.getEcuInstance());
+        assertEquals(111, clientName.getManufacturerCode());
+        assertEquals(50175, clientName.getIdentityNumber());
     }
 
     @Test
@@ -79,7 +88,7 @@ class ClientNameDecoderTest {
     @Test
     void givenValidHexValueWhenDecodingTheClientNameAndReadingTheECUInstanceThenTheDecoderShouldDecodeTheECUInstanceCorrectly() {
         final String hexValue = "A01284000DE0C3FF";
-        final int ecuInstance = ClientNameDecoder.getECUInstance(hexValue.getBytes(StandardCharsets.UTF_8));
+        final int ecuInstance = ClientNameDecoder.getEcuInstance(hexValue.getBytes(StandardCharsets.UTF_8));
         assertEquals(0, ecuInstance);
     }
 

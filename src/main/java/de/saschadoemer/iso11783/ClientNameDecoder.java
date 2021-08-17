@@ -21,13 +21,24 @@ public final class ClientNameDecoder {
      * Decode a given binary representation of a client name into a more common representation.
      *
      * @param clientName -
+     * @return The parsed values as object representation.
      */
-    public static void decode(byte[] clientName) {
+    public static ClientName decode(byte[] clientName) {
         if (null == clientName || clientName.length == 0) {
             throw new IllegalArgumentException("The client name can not be null or empty");
         }
         validateClientName(clientName);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(clientName);
+        final ClientName parsedClientName = new ClientName();
+        parsedClientName.setSelfConfigurableAddress(getSelfConfigurableAddress(clientName));
+        parsedClientName.setIndustryGroup(getIndustryGroup(clientName));
+        parsedClientName.setDeviceClassInstance(getDeviceClassInstance(clientName));
+        parsedClientName.setDeviceClass(getDeviceClass(clientName));
+        parsedClientName.setFunction(getFunction(clientName));
+        parsedClientName.setFunctionInstance(getFunctionInstance(clientName));
+        parsedClientName.setEcuInstance(getEcuInstance(clientName));
+        parsedClientName.setManufacturerCode(getManufacturerCode(clientName));
+        parsedClientName.setIdentityNumber(getIdentityNumber(clientName));
+        return parsedClientName;
     }
 
     private static void validateClientName(byte[] clientName) {
@@ -105,7 +116,7 @@ public final class ClientNameDecoder {
      * @param clientName -
      * @return -
      */
-    static int getECUInstance(byte[] clientName) {
+    static int getEcuInstance(byte[] clientName) {
         return getByte(clientName, 4) & 0b111;
     }
 
