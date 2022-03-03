@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.saschadoemer.iso-11783</groupId>
-    <artifactId>client-name-decoder</artifactId>
+    <artifactId>toolsuite</artifactId>
     <version>1.0</version>
-    <name>ISO 11783 | Client Name Decoder</name>
+    <name>ISO 11783 | Toolsuite</name>
     <packaging>jar</packaging>
 
-    <url>https://github.com/saschadoemer/isobus-client-name-decoder</url>
+    <url>https://github.com/saschadoemer/iso-11783-toolsuite</url>
     <licenses>
         <license>
             <name>Apache License Version 2.0</name>
@@ -24,15 +24,15 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git:github.com/saschadoemer/isobus-client-name-decoder.git</connection>
-        <developerConnection>scm:git:git@github.com:saschadoemer/isobus-client-name-decoder.git </developerConnection>
-        <url>https://github.com/saschadoemer/isobus-client-name-decoder</url>
+        <connection>scm:git:git:github.com/saschadoemer/iso-11783-toolsuite.git</connection>
+        <developerConnection>scm:git:git@github.com:saschadoemer/iso-11783-toolsuite.git </developerConnection>
+        <url>https://github.com/saschadoemer/iso-11783-toolsuite</url>
     </scm>
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub DKE-Data Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/saschadoemer/isobus-client-name-decoder</url>
+            <url>https://maven.pkg.github.com/saschadoemer/iso-11783-toolsuite</url>
         </repository>
     </distributionManagement>
     <repositories>
@@ -62,7 +62,9 @@
         <maven-compiler-plugin.target>8</maven-compiler-plugin.target>
 
         <!-- DEPENDENCY VERSIONS -->
-        <junit-jupiter.version>5.7.2</junit-jupiter.version>
+        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <protobuf.version>3.19.4</protobuf.version>
 
         <!-- PLUGIN VERSIONS -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -70,6 +72,24 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-bom</artifactId>
+            <version>${protobuf.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

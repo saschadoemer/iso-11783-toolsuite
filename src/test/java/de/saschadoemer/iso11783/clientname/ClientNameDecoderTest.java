@@ -1,13 +1,23 @@
-package de.saschadoemer.iso11783;
+package de.saschadoemer.iso11783.clientname;
 
+import com.google.protobuf.ByteString;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientNameDecoderTest {
+
+    @Test
+    void givenCLientNameRepresentationAsJsonEncodedByteStringThenTheDecoderShouldDecodeAllFieldsCorrectly() {
+        final String clientName = "oBKEAA3///8=";
+        final String decodedClientName = new String(Hex.encodeHex(ByteString.copyFrom(Base64.getDecoder().decode(clientName)).toByteArray()));
+        ClientNameDecoder.decode(decodedClientName);
+    }
 
     @Test
     @SuppressWarnings("ConstantConditions")

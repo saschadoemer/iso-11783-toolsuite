@@ -1,4 +1,4 @@
-package de.saschadoemer.iso11783;
+package de.saschadoemer.iso11783.clientname;
 
 /**
  * The result after parsing the client name.
