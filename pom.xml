@@ -76,6 +76,7 @@
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-bom</artifactId>
             <version>${protobuf.version}</version>
+            <type>pom</type>
             <scope>test</scope>
         </dependency>
         <dependency>
