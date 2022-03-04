@@ -1,13 +1,23 @@
-package de.saschadoemer.iso11783;
+package de.saschadoemer.iso11783.clientname;
 
+import com.google.protobuf.ByteString;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientNameDecoderTest {
+
+    @Test
+    void givenCLientNameRepresentationAsJsonEncodedByteStringThenTheDecoderShouldDecodeAllFieldsCorrectly() {
+        final String clientName = "oBKEAA3///8=";
+        final String decodedClientName = new String(Hex.encodeHex(ByteString.copyFrom(Base64.getDecoder().decode(clientName)).toByteArray()));
+        ClientNameDecoder.decode(decodedClientName);
+    }
 
     @Test
     @SuppressWarnings("ConstantConditions")
@@ -50,7 +60,7 @@ class ClientNameDecoderTest {
     @Test
     void givenInvalidHexValueWhenDecodingTheClientNameThenTheDecoderShouldDecodeAllFieldsCorrectly() {
         assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3F".getBytes(StandardCharsets.UTF_8))); // Less digits.
-        assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3FFF".getBytes(StandardCharsets.UTF_8))); // Too much digits.
+        assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3FFF".getBytes(StandardCharsets.UTF_8))); // Too many digits.
         assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3F=".getBytes(StandardCharsets.UTF_8))); // Invalid characters.
         assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3F+".getBytes(StandardCharsets.UTF_8))); // Invalid characters.
         assertThrows(IllegalArgumentException.class, () -> ClientNameDecoder.decode("A01284000DE0C3FG".getBytes(StandardCharsets.UTF_8))); // Invalid characters.

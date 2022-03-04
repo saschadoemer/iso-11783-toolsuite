@@ -1,4 +1,4 @@
-package de.saschadoemer.iso11783;
+package de.saschadoemer.iso11783.clientname;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
