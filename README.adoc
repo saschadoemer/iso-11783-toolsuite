@@ -1,9 +1,7 @@
-= ISO 11783 | Client Name Decoder
+= ISO 11783 | Toolsuite
 :imagesdir: assets/images
 
 The https://en.wikipedia.org/wiki/ISO_11783[ISO 11783] standard specifies a serial data network for control and communications on forestry and agricultural machines.
-Every control function in an ISOBUS network has a unique NAME ( defined in https://www.iso.org/standard/74366.html[11783-5]) that contains information about the manufacturer code, the device class and other common fields.
-The information is encoded in a byte value representation.
 
 == Supporters & Maintainers
 
@@ -16,9 +14,10 @@ We have been supporting the whole project during the development in the field of
 
 == The current project you’re looking at
 
-This project contains a simple decoder for the binary values and can be used in every other project.
+This project contains a simple encoder / decoder for binary values and can be used in every other project.
+
 There is already an existing resolver for TypeScript that has been developed by https://github.com/krone-landmaschinen[Maschinenfabrik Bernard KRONE GmbH & Co. KG].
-This project adds an implementation for Java.
+This project adds an implementation for this use case in Java.
 
 == Releases
 
@@ -31,8 +30,8 @@ You can find the packages right https://github.com/saschadoemer?tab=packages[her
 [source,xml]
 <dependency>
     <groupId>de.saschadoemer.iso-11783</groupId>
-    <artifactId>client-name-decoder</artifactId>
-    <version>${client-name-decoder.version}</version>
+    <artifactId>toolsuite</artifactId>
+    <version>${toolsuite.version}</version>
 </dependency>
 
 === Contact and interaction
