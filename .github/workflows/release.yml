@@ -3,7 +3,7 @@ name: "GitHub Release"
 on:
   push:
     tags:
-      - v1.*
+      - v*
 
 jobs:
   deploy:
